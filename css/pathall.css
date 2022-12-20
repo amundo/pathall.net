@@ -7,7 +7,10 @@ html {
 }
 
 header#site-header {
-  padding:1em;
+  display: flex;
+  justify-content: space-between;
+  padding:0;
+  padding-right: 5em;
   background: var(--primary-background);
   color:var(--heading-color);
   background-color: var(--primary-background);
@@ -23,19 +26,29 @@ header#site-header :is(h1, h2, h3, h4, h5, h6) {
 
 }
 
-img#me {
+header#site-header > div{
+  margin:1em;
+}
+
+#site-header img#me {
   border: 5px solid #5e8aa1;
-  position: fixed;
+  object-fit: contain;
   top: 0em;
   right: 0;
   transform-origin: top center;
-  transform: scale(.5) rotate(10deg);
+  height:100px;
+  width:auto;
+  transform:rotate(-20deg);
+  background-size: contain;
   box-shadow: -4px 4px 10px var(--primary-background-dark);
+}
+#site-header img#me:hover {
+  transform: rotate(-10deg);
 }
 
 main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 2fr 1fr;
   padding:1em;
   gap:1em;
 }

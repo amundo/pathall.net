@@ -7,3 +7,5 @@ document.querySelector('img')
   .addEventListener("mouseout", mouseoutEvent => {
     mouseoutEvent.target.src = 'images/me.jpg'
   })
+
+ 
