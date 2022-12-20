@@ -1,0 +1,45 @@
+@import url('type.css');
+@import url('colors.css');
+
+body,
+html {
+  margin: 0;
+}
+
+header#site-header {
+  padding:1em;
+  background: var(--primary-background);
+  color:var(--heading-color);
+  background-color: var(--primary-background);
+  background-size: 10px 10px;
+  background-image:
+    linear-gradient(to right, var(--primary-background-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--primary-background-light) 1px, transparent 1px);
+}
+
+
+header#site-header :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+
+}
+
+img#me {
+  border: 5px solid #5e8aa1;
+  position: fixed;
+  top: 0em;
+  right: 0;
+  transform-origin: top center;
+  transform: scale(.5) rotate(10deg);
+  box-shadow: -4px 4px 10px var(--primary-background-dark);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding:1em;
+  gap:1em;
+}
+
+section#contact-me {
+  grid-column: 3;
+}

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Fira+Sans&family=Homemade+Apple&display=swap');
+
+:root {
+  --heading-font-family: Comfortaa;
+  --heading-color: Comfortaa;
+  --prose-font-family: Fira Sans;
+}
+
+#site-header :is(h1,h2,h3,h4,h5,h6,p){  
+  text-shadow: -1px 1px 2px var(--primary-background-dark);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Comfortaa;
+}
+
+
+p, blockquote {
+  font-family: Fira Sans;
+}

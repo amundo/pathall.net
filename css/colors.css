@@ -1,0 +1,11 @@
+
+:root {
+  --blue-hue: 200;
+  --cream-hue: 60;
+
+  --primary-background: hsla(var(--blue-hue), 25%, 50%);
+  --primary-background-dark: hsla(var(--blue-hue), 25%, 20%);
+  --primary-background-light: hsla(var(--blue-hue), 25%, 52%);
+
+  --heading-color: hsla(var(--cream-hue), 50%, 89.8%);
+}
