@@ -1,0 +1,18 @@
+@import url('../toggle-star/toggle-star-docs.css');
+
+fake-email {
+  display: block;
+}
+
+fake-email [data-starred=true]{
+  color:inherit;
+}
+
+fake-email [data-starred]{
+  width: 1em;
+}
+
+fake-email [data-starred=false]{
+  color:transparent;
+  text-shadow: 0 0 0 lightgray;
+}

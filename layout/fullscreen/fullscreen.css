@@ -1,0 +1,38 @@
+@import url(fake-email/fake-email.css);
+*, *::before, *::after {
+
+}
+
+html {
+ color-scheme: dark light; 
+ box-sizing: border-box;
+ margin:0;
+ padding:0;
+}
+
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+figure {
+  max-width: 60%;
+}
+input, textarea, button, select {
+  font: inherent;
+}
+
+img, picture, svg, video {
+  display:block;
+  max-width: 100%;
+}
+
+body > main {
+  padding: 0 5em;
+}
+
+
+
+#sample-grid {
+  overflow-y: scroll;
+}

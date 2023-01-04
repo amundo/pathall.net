@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>  
+  <title>toggle-star</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="toggle-star-docs.css">
+
+</head>
+<body>
+  
+<header>
+  <h1>&lt;toggle-star></h1>
+  <p class=description>A component for a toggleable star.</p>
+</header>
+
+<main>
+  <section id=example>
+    <h2>Example</h2>
+    &lt;toggle-star>&lt;/toggle-star>
+
+    <p>
+      This very simple component provides a clickable star for rankings, tagging things as important, etc.
+    </p>
+    <toggle-star></toggle-star>
+
+
+  </section>
+
+  <section id=attributes>
+    <h2>Attributes</h2>
+    <section id=example>
+      <h2><code>starred</code></h2>
+      <p>
+        The default is for the star to be unselected. You can change that by adding a <code>starred</code> attribute.
+      </p>
+
+      <pre>&lt;toggle-star starred>&lt;/toggle-star></pre>
+  
+      <toggle-star starred></toggle-star>
+  </section>
+
+  <section id="see-demo">
+    <h2>Demo page</h2>
+    <p>See a demo page with an example here: <a href="toggle-star.html">toggle-star.html</a></p>
+  </section>
+
+
+
+</main>
+
+<script type="module">
+import {ToggleStar} from './ToggleStar.js'
+
+window.toggleStar = document.querySelector('toggle-star')
+</script>
+
+</body>
+</html>

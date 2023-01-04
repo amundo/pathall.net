@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "build": "pandoc -s --css fullscreen.css -f markdown fullscreen.md -o fullscreen.html"
+  }
+}

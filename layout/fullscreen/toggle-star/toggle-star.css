@@ -1,0 +1,14 @@
+toggle-star  button {
+  border:none;
+  background:none;
+  cursor: pointer;
+}
+
+toggle-star:not([starred]) button {
+  color: transparent;
+  text-shadow: 0 0 0 #cecece;
+}
+
+toggle-star[starred] button {
+  color: inherit;
+}

@@ -1,0 +1,51 @@
+<style>
+
+section#sample-grid {
+  border:1px solid black;
+  gap:1em;
+  height:20em;
+  display:grid;
+  grid-template:
+    "header  header" auto 
+    "sidebar main" 1fr
+  /  1fr     2fr;
+  
+}
+
+#sample-grid header {
+  background:yellow;
+  color:purple;
+  grid-area:header;
+}
+
+
+#sample-grid header {
+  background:yellow;
+  color:purple;
+  grid-area:header;
+}
+
+#sample-grid aside {
+  grid-area:sidebar;
+  background:purple;
+  color:white;
+}
+
+#sample-grid main {
+  grid-area:main;
+}
+</style>
+<section id="sample-grid">
+  <header>
+    <h1>header…</h1>
+  </header>
+  <aside style="">
+    <h2>Sections:</h2>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+    </ul>
+  </aside>
+  <main>stuff about things.
+  </main>
+</section>
