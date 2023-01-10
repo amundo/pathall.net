@@ -1,5 +1,5 @@
 
-demo-demo {
+demo-demo { 
   display: grid;
   grid-template: 
       "demo demo demo" 1fr 
@@ -9,19 +9,15 @@ demo-demo {
 }
 
 demo-demo figure { grid-area: demo; }
-/* demo-demo pre { grid-area: html; }
-demo-demo style { grid-area: css; }
-demo-demo script { grid-area: js; } */
-
 
 demo-demo :is(style, script, pre){
   overflow:scroll;
-  /* height:100%; */
   display: block;
   white-space: pre-wrap;
   background: #333;
   color: limegreen;
   font-family: Fira Mono, monospace;
+  font-size: .8rem;
   margin:0;
   padding:.2em;
 }
@@ -31,7 +27,7 @@ demo-demo :is(style, script, pre):before {
   display: block;
   background:white;
   color:#333;
-  font-size: small;
+  font-size: .5rem;
   border: 1px solid;
   text-align: right;
   padding-right: 1em;

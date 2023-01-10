@@ -14,14 +14,18 @@ class DemoDemo extends HTMLElement {
     this.figure = this.querySelector('figure')
 
     
-    let [figure, style, script] = Array.from(this.children)
+    // let [figure, style, script] = Array.from(this.children)
+    let figure = this.querySelector('figure')
+    let script = this.querySelector('script')
+    let style = this.querySelector('style')
 
     style.dataset.label = 'CSS'
+    style.setAttribute('contenteditable', true)
     script.dataset.label = 'Javascript'
     let source = document.createElement('pre')
-    source.textContent = '\n' + figure.innerHTML
+    source.textContent = figure.outerHTML
     source.dataset.label = 'HTML'
-    this.append(source)
+    figure.after(source)
   }
 
   static get observedAttributes(){

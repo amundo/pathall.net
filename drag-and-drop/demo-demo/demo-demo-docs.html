@@ -5,39 +5,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="demo-demo-docs.css">
-
 </head>
 <body>
   
 <header>
   <h1>&lt;demo-demo></h1>
-  <p class=description></p>
+  <p class=description>A somewhat simple way to create a step in a tutorial with <code>HTML</code>, <code>CSS</code>, and <code>Javascript</code> visible.</p>
 </header>
 
 <main>
   <section id=example>
     <h2>Example</h2>
-    <demo-demo></demo-demo>
+    <p>I found this component useful for creating tutorials where a other code (usually other web components!) is explained in a step-by-step fashion.</p>
+    <demo-demo class=example id="example-1">
+<figure>
+  <span class="person">🧍</span>
+  <span class="castle">🏰</span>
+</figure>
+<style>
+#example-1 span {font-size:4rem;}
+#example-1 figure { display: flex;}
+</style>
+<script type="module">
+document.querySelector('#example-1 .person')
+  .addEventListener("click", e => 
+    e.target.style.transform = 'scale(2)'
+  )
+</script>
+      </demo-demo>
+      
+      <h3>Produced from this code:</h3>
+
+    <pre>
+      &lt;demo-demo class=example id="example-1">
+
+      &lt;figure>
+        &lt;span class="person">🧍&lt;/span>
+        &lt;span class="castle">🏰&lt;/span>
+      &lt;/figure>
+
+      &lt;style>
+      #example-1 span {font-size:4rem;}
+      #example-1 figure { display: flex;}
+      &lt;/style>
+
+      &lt;script  type="module">
+      document.querySelector('#example-1 .person')
+      .addEventListener("click", e => 
+        e.target.style.transform = 'scale(2)'
+      )
+          &lt;/script>
+
+      &lt;/demo-demo>
+      
+
+    </pre>
   </section>
 
-  <section id=attributes>
-    <h2>Attributes</h2>
-    <!-- list attributes -->
+  <section id=usages>
+    <h2>Usage</h2>
+    <p>This component is opinionated. You must have the following children in your markup, in this order:</p>
+    <ol>
+      <li>
+        &lt;figure>&lt;/figure>
+      </li>
+      <li>
+        &lt;style>&lt;/style>
+      </li>
+      <li>
+        &lt;script type="module">&lt;/script>
+      </li>
+    </ol>
+    <p>
+      The &lt;pre> tag containing the markup inside the &lt;figure> tag is automatically generated.
+    </p>
+    <p>
+      The &lt;style> tag may also have a <code>contenteditable</code> attribute to make the <code>CSS</code> interactively editable. This is not possible for the &lt;script> tag, as far as I know.
+    </p>
+    <p>
+      Note also that the rules in the &lt;style> tag are scoped to the component itself. This would probably be better with shadow <code>DOM</code> and <code>:root{}</code> and all that, but I generally don’t like it, and I don’t find this scoping rule onerous.
+    </p>
+    <p>
+      In all likelihood you will also want to scope selectors in the &lt;script> tag to the component as well, as I have done here.
+    </p>
   </section>
-
+  
   <section id=methods>
     <h2>Methods</h2>
-    <!-- list methods -->
+    <p>None.</p>
   </section>
 
 
   <section id=events>
     <h2>Events</h2>
-    <!-- list events -->
+    <p>No custom events.</p>
   </section>
 
   <section id=layouts>
     <h2>Layouts</h2>
+    <p>See the <code>grid-template</code> rule in <code>demo-docs.css</code> if you wish to change the grid layout.</p>
     <!-- list layouts -->
   </section>
 
