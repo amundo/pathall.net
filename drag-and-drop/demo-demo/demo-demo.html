@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>  
+  <title>demo-demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="demo-demo.css">
+
+</head>
+<body>
+
+<demo-demo>
+<figure>
+  <button id="clicky-button">clicky</button>
+  <div>
+
+    wtf omg
+  </div>
+</figure>
+<style class="demo-demo-style">
+button {
+  background: maroon;
+  color:white;
+  border:none;
+  border-radius: 1em;
+  font-size: 2rem;
+}
+</style>
+<script>
+let button = document.querySelector('#clicky-button')
+button.addEventListener('click', () => alert('click!'))
+</script>
+</demo-demo>  
+
+<script type="module">
+import {DemoDemo} from './DemoDemo.js'
+
+window.demoDemo = document.querySelector('demo-demo')
+</script>
+
+</body>
+</html>
