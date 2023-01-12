@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag and drop</title>
+  <link rel="stylesheet" href="drag-and-drop.css">
+</head>
+<body>
+  <header>
+    <h1>Drag and drop</h1>
+    <h2>An illustrated guide</h2>
+    <h3>By Pat Hall</h3>
+
+    <nav>
+      <ol></ol>
+    </nav>
+  </header>
+  <main>
+
+<section id="intro">
+<header>
+  <h2>Step 1: Two elements</h2>
+  <p>In the demo below, there are two <code>&lt;span></code>s, each containing an emoji.</p>
+  <p>Our goal is to make it possible to drag the person onto the castle, and make something happen when we do.</p>
+  <p>Notice that right now when you hover over the person, your cursor will become a text-selection element. That’s not helpful, because there’s no indication that the person even <em>should</em> be draggable. We can give some indication that that is the case with a little <code>CSS</code> <a href="#style-cursor">in the next step</a>.</p>
+
+</header>
+
+<demo-demo class=step id="step-1">
+<figure>
+  <span class="person">🧍</span>
+  <span class="castle">🏰</span>
+</figure>
+<style>
+
+</style>
+<script></script>
+</demo-demo>
+</section>
+
+<section id="style-cursor">
+  <header>
+    <h2>Step 2: Make the target draggable</h2>
+      <p>We’ve taken two steps here:</p>
+      <ol>
+        <li>We added the attribute <code>draggable="true"</code> to the person span (check the <code>HTML</code> pane below).</li>
+        <li>We changed the cursor over the person span when we hover over it (<code>CSS</code> pane).</li>
+      </ol>
+      <p>If you try dragging the person, you’ll notice that there is a “ghost image” of the element as you drag. This comes from the <code>draggable=true</code> attribute — it doesn’t happen in the previous step.</p>
+      <p>You’ll also notice the <code>dragstart</code> event being logged up in the gray box every time you grab <em>and drag</em> the person — clicking is not enough!</p>
+      <p>Some progress, but dragging the person onto the castle does nothing.</p>
+      <div class="event-log"><em>event log…</em></div>
+      <p>To make it do something, we have to learn a bunch about drag-and-drop-releated events, and there are a bunch of them. First up, the <a href="#drop-event">drop event</a>.</p>
+  </header>
+  
+  <demo-demo class=step id="step-2">
+<figure>
+  <span draggable=true class="person">🧍</span>
+  <span class="castle">🏰</span>
+</figure>
+<style>
+#step-2 [draggable]:hover {
+  cursor: grab;
+}
+</style>
+<script type="module">
+import {logEvent} from './log-event.js'
+let person2 = document.querySelector('#step-2 span.person')
+
+person2.addEventListener("dragstart", dragstartEvent => {
+  logEvent(dragstartEvent, '#style-cursor .event-log')
+})
+</script>
+  </demo-demo>  
+</section>
+
+
+
+<section id="drop-event">
+  <header>
+    <h2>Step 3: The <code>drop</code> event.</h2>
+    <p>First off, here’s the complete list of drag-and-drop-related events. The events that are described with <em>when</em> happen once in a drag sequence, whereas those described with <em>while</em> repeat at a certain frqeuency.
+    </p>
+    <table>
+      <tr>
+        <th>done</th>
+        <th><code>event</code></th>
+        <th>description</th>
+        <th>target</th>
+<tr><strong><td>✅</td><td><code>dragstart</code></strong></td> <td> when user starts dragging.</td><td><code>item</code></td></tr>
+<tr><strong><td>❎</td><td><code>dragend</code></strong></td> <td> when the drag operation is complete.</td><td><code>item</code></td></tr>
+<tr><strong><td>❎</td><td><code>drag</code></strong></td> <td> while element is dragged.</td><td><code>item</code></td></tr>
+<tr><strong><td>❎</td><td><code>dragenter</code></strong></td> <td> when dragged element enters the target.</td><td><code>drop zone</code></td></tr>
+<tr><strong><td>❎</td><td><code>dragover</code></strong></td> <td> while the dragged element is over drop target.</td><td><code>drop zone</code></td></tr>
+<tr><strong><td>❎</td><td><code>dragleave</code></strong></td> <td> when the dragged element leaves the drop target.</td><td><code>drop zone</code></td></tr>
+<tr><strong><td>❎</td><td><code>drop</code></strong></td> <td> when the element is dropped on the drop target.</td><td><code>drop zone</code></td></tr>
+    </table>
+    
+    <div class="event-log"><em>event log…</em></div>
+
+  </header>
+  
+  <demo-demo class=step id="step-3">
+<figure>
+  <span draggable=true class="person">🧍</span>
+  <span class="castle">🏰</span>
+</figure>
+<style>
+#step-3 [draggable]:hover {
+  cursor: grab;
+}
+</style>
+<script type="module">
+import {logEvent} from './log-event.js'
+let person3 = document.querySelector('#step-2 span.person')
+
+person3.addEventListener("drop", dropEvent => {
+  logEvent(dropEvent, '#drop-event .event-log')
+})
+</script>
+  </demo-demo>  
+</section>
+
+</main>
+
+<footer> a pathall.net production </footer>
+
+<script type="module" src="log-event.js"></script>
+<script type="module" src="demo-demo/DemoDemo.js"></script>
+<script type="module">
+document.querySelectorAll('main section')
+.forEach(section => {
+  let id = section.id
+  let title = section.querySelector('h2').textContent
+  let a = document.createElement('a')
+  a.href = `#${id}`
+  a.textContent = title
+
+  let li = document.createElement('li')
+  li.append(a)
+  document.querySelector('nav ol').append(li)
+})
+</script>
+</body>
+</html>

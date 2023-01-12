@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height:100%;
+  overflow: scroll;
+  margin:0;
+}
+
+body {
+  padding:1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+aside {
+  font-size: small;
+  background-color: seashell;
+  height: 100%;
+  overflow: scroll;
+  max-height: 10em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #dddddd;
+}

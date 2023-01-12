@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: scroll;
+}
+
+
+body {
+  display: grid;
+  grid-template:
+    "header main" 1fr
+    "footer footer" auto
+    / 2fr 5fr;
+  height:100%;
+  overflow: hidden;
+}
+
+body :is(header,footer){
+  padding:1em;
+}
+
+body > header {
+  border-right: 1px solid;
+  grid-area: header;
+  height:100%;
+}
+
+body > footer {
+  grid-area: footer;
+  background: white;
+  border-top: 1px solid;
+}
+
+main {
+  grid-area: main;
+  height: 100%;
+  overflow: scroll;
+}
+
+main > section {
+  height: 100vh;
+  border: 1px solid chartreuse;
+}

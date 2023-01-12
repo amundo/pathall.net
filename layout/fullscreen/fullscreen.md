@@ -53,69 +53,18 @@ Documents are still the heart of the web. But it also has new uses. One is as an
 Like this:
 
 ```{=html}
-<style>
-
-#sample-grid {
-  border:1px solid black;
-  height:20em;
-  display:grid;
-  grid-template:
-    "header  header" auto 
-    "sidebar main" 1fr
-  /  1fr     2fr;
-  
-}
-
-#sample-grid header {
-  grid-area:header;
-  background:hsl(229.4, 50.5%, 19.8%);
-  color:hsl(0, 0%, 98.4%);
-}
-
-#sample-grid aside {
-  grid-area:sidebar;
-  background: hsl(192, 33.3%, 97.1%);
-}
-
-#sample-grid main {
-  grid-area:main;
-}
-
-fake-email table {
-  border-collapse: collapse;
-}
-
-fake-email table tr {
-  border-bottom: 1px solid  hsl(192, 33.3%, 97.1%);
-
-}
-
-
-fake-email table td div {
-  align-content: center;
-  line-height: 1;
-  padding: 1em;
-  font-size: small;
-  display: grid;
-  
-}
-
-fake-email strong {
-  
-}
-
-</style>
-<figure id="sample-grid">
+<link href=spam-mail.css rel=stylesheet >
+<figure id="spam-mail">
   <header>
     <h1>🗑️ spam mail 5000 📨</h1>
   </header>
   <aside style="">
     <button>✏️ compose</button>
     <ul>
-      <li>📥 Inbox</li>
-      <li>🛫 Sent</li>
-      <li>📄 Drafts</li>
-      <li>⭐ Important</li>
+      <li><span class=icon-emoji>📥</span> Inbox</li>
+      <li><span class=icon-emoji>✉️</span> Sent</li>
+      <li><span class=icon-emoji>📄</span> Drafts</li>
+      <li><span class=icon-emoji>⭐</span> Important</li>
     </ul>
   </aside>
   <main>

@@ -1,0 +1,79 @@
+
+
+
+#spam-mail {
+  border:1px solid black;
+  height:20em;
+  display:grid;
+  grid-template:
+    "header  header" auto 
+    "sidebar main" 1fr
+  /  1fr     2fr;
+  
+}
+
+#spam-mail header {
+  grid-area:header;
+  background:hsl(229.4, 50.5%, 19.8%);
+  color:hsl(0, 0%, 98.4%);
+}
+
+#spam-mail aside {
+  grid-area:sidebar;
+  background: hsl(192, 33.3%, 97.1%);
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto 1fr;
+  padding: 1em;
+}
+
+#spam-mail aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+#spam-mail aside ul li {
+  background: hsl(0, 0%, 100%);
+  padding: .2em;
+  border-radius: .2em;
+  box-shadow: -1px 2px 1px hsla(30, 40%, 80%, .5);
+  border: 1px solid hsla(30, 40%, 80%, .5);
+  margin:.5em;
+}
+
+#spam-mail aside .icon-emoji {
+  display: inline-grid;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius:50%;
+  text-shadow: -1px 1px 0 gray;
+  place-content:center;
+}
+#spam-mail main {
+  grid-area:main;
+  box-shadow: inset 1px 0 4px hsla(0, 0%, 0%, 0.1);
+}
+
+fake-email table {
+  border-collapse: collapse;
+}
+
+fake-email table tr {
+  border-bottom: 1px solid  hsl(192, 33.3%, 97.1%);
+
+}
+
+
+fake-email table td div {
+  align-content: center;
+  line-height: 1;
+  padding: 1em;
+  font-size: small;
+  display: grid;
+  
+}
+
+fake-email strong {
+  
+}
+

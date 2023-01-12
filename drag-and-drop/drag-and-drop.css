@@ -1,0 +1,58 @@
+@import url(demo-demo/demo-demo.css);
+@import url(layout.css);
+
+main>section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.step span {
+  font-size: 4rem;
+}
+
+.step figure {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.step figure span {
+  flex:1;
+  display: grid;
+  place-content: center;
+}
+
+section > header {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+
+section > header > * {
+  grid-column: 1;
+}
+
+section > header > .event-log {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  border: 1px solid;
+  max-height: 10em;
+  overflow:scroll;
+  background:#cecece;
+}
+
+section > header > .event-log p {
+  padding:.4em;
+  border-bottom: 1px solid #333;
+  margin:0;
+}
+
+p {
+  line-height: 1.4;
+}
+
+
+code {
+  font-family: Fira Mono, monospace;
+}

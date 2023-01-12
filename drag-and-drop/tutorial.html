@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Drag and Drop tutorial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="tutorial.css">
+</head>
+<body>
+
+  <table></table>
+    
+<script type="module">
+import {renderTable} from './render-table.js'
+
+// let generateTable = ({metadata, events}) => {
+//   let table = document.createElement("table")
+//   if(events.metadata.labels){
+//     let 
+//   }
+//   let events = data.events
+
+//   let thead = document.createElement("thead")
+//   thead.innerHTML = headers.map(header => `<th>${header}</th>`).join("")
+//   table.appendChild(thead)
+
+//   let tbody = document.createElement("tbody")
+//   events.forEach(event => {
+//     let tr = document.createElement("tr")
+//     tr.innerHTML = `<td>${event.number}</td>
+//                     <td>${event.name}</td>
+//                     <td>${event.on}</td>
+//                     <td>${event.description}</td>
+//                     <td>${event.prevent_default}</td>`
+//     tbody.appendChild(tr)
+//   })
+//   table.appendChild(tbody)
+
+//   return table
+// }
+
+let response = await fetch('drag_and_drop-events.json')
+let data = await response.json()
+
+document.querySelector('table').replaceWith(renderTable(data))
+</script>  
+  
+</body>
+</html>

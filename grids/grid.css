@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body  {
+  overflow: scroll;
+  height: 100%;
+  margin:0;
+}
+
+body {
+  padding:1em;
+}
+
+
+
+
+
+
+
+
+
+
+html {
+  border: 10px solid green;
+}
+
+body {
+  border: 10px solid darkgreen;
+}

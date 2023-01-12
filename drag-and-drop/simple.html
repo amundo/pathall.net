@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simple</title>
+</head>
+<body>
+<div style="border:1px solid black; background: salmon; height: 10em; width:10em;" id="drop-zone"></div>
+<p>
+
+  <button draggable="true" id="drag-item">Drag me!</button>
+</p>
+
+  <script type="module">
+const dragItem = document.getElementById("drag-item");
+const dropZone = document.getElementById("drop-zone");
+
+dragItem.addEventListener("dragstart", function(event) {
+  console.log(event.type)
+  event.dataTransfer.setData("text/plain", event.target.id);
+});
+
+
+dragItem.addEventListener("drag", function(event) {
+  console.log(event.type)
+});
+
+dropZone.addEventListener("dragenter", function(event) {
+  console.log(event.type)
+  event.preventDefault();
+});
+
+dropZone.addEventListener("dragover", function(event) {
+  console.log(event.type)
+  event.preventDefault();
+});
+
+dropZone.addEventListener("drop", function(event) {
+  console.log(event.type)
+  event.preventDefault();
+  const data = event.dataTransfer.getData("text/plain");
+  event.target.appendChild(document.getElementById(data));
+});
+
+  </script>
+</body>
+</html>
