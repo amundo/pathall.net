@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drop files</title>
+  <style>
+    div {
+      background: lightblue;
+      height:200px;
+      border-radius: 2em;
+      border: 5px solid transparent;
+      display: grid;
+      place-content: center;
+    }
+
+    div.over {
+      border: 5px solid navy;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <header>drop files here</header>
+  </div>
+
+<script type="module">
+let div = document.querySelector('div')
+div.addEventListener('dragover', e => {
+  e.preventDefault()
+})
+
+div.addEventListener('dragenter', e => {
+  e.preventDefault()
+  e.target.classList.add('over')
+})
+
+div.addEventListener('dragleave', e => {
+  e.preventDefault()
+  e.target.classList.remove('over')
+})
+
+div.addEventListener('drop', e => {
+  e.preventDefault()
+  e.target.classList.remove('over')
+  for(let x of e.dataTransfer.files){
+    console.log(x.name)
+  }
+})
+</script>
+</body>
+</html>

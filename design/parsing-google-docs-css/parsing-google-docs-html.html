@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="tags" content="google, css, html, parsing-css"></meta>
+  <link rel="stylesheet" href="parsing-google-docs-html.css" />
+  <title>Parsing Google Docs HTML and CSS</title>
+</head>
+<body>
+  
+</body>
+</html>
+<p>Here’s a style sampler page I made with Google Docs:</p>
+<p><a
+href="https://docs.google.com/document/d/1MA5kl7o5BvleTnsyZny9qba7ap76cQi8zZ3AvC5Dfk4/edit#">Sampler
+Doc</a></p>
+<p>I basically just made an instance of every default class:</p>
+<figure>
+<img id=menu-screenshot src="images/screenshot-sampler.png" alt="A screenshot of the default styles in a Google Doc" >
+</figure>
+<p>Here’s where you download the HTML version in Google Docs:</p>
+<figure>
+<img id=menu-screenshot src="images/download-as-html.png" alt="A screenshot of the download as html menu option in Google Docs" >
+</figure>
+<p>So you unzip that and you get <a
+href="StyleSampler.html"><code>StyleSampler.html</code></a>, which looks
+about the same. But lets look at the code (I formatted indented the
+<code>HTML</code> in <code>VS Code</code> to be more readable):</p>
+<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@1.0.1/dist/ace-editor-wc.min.js" ></script>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@v1.0.1/dist/ace-editor-wc.min.css"></p>
+<figure id="sampler-1">
+<figcaption>
+The unchanged <code>HTML</code> from Google Docs
+</figcaption>
+</figure>
+<script type=module>
+let ae = new AceEditorWC
+let response = await fetch('StyleSampler.html')
+let html = await response.text()
+ae.textContent = html 
+ae.setAttribute('language', 'html')
+document.querySelector("sampler-1").insertAdjacentElement("afterbegin", ae)
+</script>
+<style>
+ace-editor {
+  display:block;
+  max-width: 80%;
+  max-height: 20rem;
+  overflow: scroll;
+}
+</style>

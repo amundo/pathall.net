@@ -1,0 +1,29 @@
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  padding:1em;
+}
+
+figure  img {
+  border: 1px solid;
+}
+
+figure img {
+  max-width: 500px;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+.show-css {
+  display: block;
+  background-color: #333;
+  color: limegreen;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

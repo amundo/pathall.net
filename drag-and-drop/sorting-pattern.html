@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sorting pattern</title>
+</head>
+<body>
+  <header>
+    <h1>Drag and drop sorting pattern</h1>
+      <p>In this usage of the drag and drop API, the draggable element is moved under one of several dropzones.</p>
+    
+<style>
+
+* {box-sizing: border-box;}
+html,body { height: 100%; }
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+.div:not(.over){
+  border: 5px dotted gray;
+}
+
+.over {
+  border: 5px dotted fuchsia;
+}
+
+li {
+  margin:1em;
+  border: 5px dotted lightgray;
+}
+
+p#drag-me {
+  border: 1px solid;
+  box-shadow: -2px 1px 0 black;
+  display: inline;
+  padding:.2em;
+  background:white;
+}
+.ghost {
+  border:5px solid fuchsia;
+}
+</style>
+  </header>
+  <main>
+    <p id="drag-me" draggable="true">drag me</p>
+    <ul>
+      <li id="red">red</li>
+      <li id="green">green</li>
+      <li id="blue"></li>
+    </ul>
+  </main>
+
+<script type="module">
+let p = document.querySelector('p#drag-me')
+let colors = Array.from(document.querySelectorAll('li'))
+
+p.addEventListener('dragstart', e => {
+  console.log(`dragstart`)
+  e.dataTransfer.setData('text', e.target.id)
+
+  event.dataTransfer.setDragImage(event.target, event.target.offsetWidth / 2, event.target.offsetHeight / 2);
+  
+})
+
+p.addEventListener('drag', e => {
+  e.preventDefault()
+})
+
+colors.forEach(color => {
+  color.addEventListener('dragenter', e => {
+    e.preventDefault()
+    e.currentTarget.classList.add('over')
+  })
+  
+  color.addEventListener('dragover', e => e.preventDefault())
+
+  color.addEventListener('drop', e => {
+    e.preventDefault()
+
+    let id = e.dataTransfer.getData('text')
+    let draggable = document.querySelector(`#${id}`)
+    
+    e.currentTarget.append(draggable)
+    e.currentTarget.classList.remove('over')
+  })
+
+  color.addEventListener('dragleave', e => {
+    e.currentTarget.classList.remove('over')
+  })
+
+})
+</script> 
+</body>
+</html>

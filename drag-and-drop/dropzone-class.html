@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Document</title>
+  <style>
+* { box-sizing: border-box; }
+
+div:not(.over) { border: 5px dotted transparent; }
+div.over {       border: 5px dotted fuchsia; }
+
+div.dropped { background: gray;}
+
+html, body {
+  overflow: scroll;
+  height:100%;
+  margin:0;
+  background: burlywood;
+}
+
+body {
+  border:10px solid;
+  padding:1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+} 
+
+  </style>
+</head>
+<body>
+
+  <p draggable=true>a paragraph</p>
+  <div>a div to drag onto</div>
+  
+  <script>
+let div = document.querySelector('div')
+let p = document.querySelector('p')
+
+
+p.addEventListener('drag', e => {
+  console.log(`drag`)
+  e.preventDefault()
+})
+
+p.addEventListener('dragstart', e => {
+  console.log(`dragstart`)
+  // e.preventDefault()
+})
+
+div.addEventListener('dragenter', e => {
+  e.preventDefault()
+
+  console.log(`dragenter`)
+
+  e.target.classList.add('over')  
+})
+
+div.addEventListener('dragover', e => {
+  e.preventDefault()
+})
+
+div.addEventListener('dragleave', e => {
+  e.target.classList.remove('over')
+})
+
+div.addEventListener('drop', e => {
+  e.preventDefault()
+  e.target.classList.remove('over')
+  e.target.classList.add('dropped')
+
+  console.log(`dropped`)
+})
+  </script>
+</body>
+</html>

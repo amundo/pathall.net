@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "build": "pandoc -f markdown --template template.html --css parsing-google-docs-html.css -s -t html parsing-google-docs-html.md -o parsing-google-docs-html.html"
+  }
+}

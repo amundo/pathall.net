@@ -45,7 +45,7 @@
     {
       "number": 2,
       "name": "drag",
-      "continuous": false,
+      "continuous": true,
       "on": "dragged-element",
       "description": "fired continuously as the element is being dragged",
       "preventDefault": "false",
@@ -63,9 +63,9 @@
     {
       "number": 4,
       "name": "dragover",
-      "continuous": false,
+      "continuous": true,
       "on": "drop-zone",
-      "description": "fired when the dragged element is over a valid drop-zone",
+      "description": "fired while the dragged element is over a valid drop-zone",
       "preventDefault": "usually true",
       "mdn": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragover_event"
     },
